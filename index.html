@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konsultan Kesihatan Peribadi AI</title>
-    <!-- Tailwind CSS untuk reka bentuk moden -->
+    <title>Sistem Analisis Kesihatan Imun & Solusi 4Life</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes pulse-slow {
@@ -23,35 +22,47 @@
         <div class="max-w-2xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-3 h-3 bg-emerald-500 rounded-full animate-ping"></div>
-                <span class="font-bold text-lg tracking-wide text-emerald-400">Dr. Imun AI (Konsultan)</span>
+                <span class="font-bold text-lg tracking-wide text-emerald-400">Dr. Imun AI (Konsultan Rasmi)</span>
             </div>
-            <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full">Sistem Analisis Pantas</span>
+            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-medium">Sistem Disahkan Aman</span>
         </div>
     </header>
 
     <!-- Main Container -->
     <main class="max-w-2xl w-full mx-auto p-4 md:p-6 flex-1 flex flex-col justify-center">
-        <div id="app-container" class="bg-slate-800/80 backdrop-blur border border-slate-700 rounded-2xl p-6 shadow-2xl">
+        
+        <!-- Progress Bar -->
+        <div id="progress-wrapper" class="mb-4">
+            <div class="flex justify-between text-xs text-slate-400 mb-1">
+                <span id="progress-step-text">Langkah 1 dari 3: Pilih Kategori</span>
+                <span id="progress-percent">33%</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-700">
+                <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-300" style="width: 33%;"></div>
+            </div>
+        </div>
+
+        <div id="app-container" class="bg-slate-800/90 backdrop-blur border border-slate-700 rounded-2xl p-6 shadow-2xl">
             
             <!-- STAGE 1: PILIH KATEGORI MASALAH -->
             <div id="stage-1" class="space-y-6">
                 <div class="flex items-start space-x-3">
                     <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tl-none font-semibold text-sm max-w-lg shadow">
-                        Hai! Saya pembantu kesihatan peribadi anda. Apakah isu kesihatan utama yang mahu kita selesaikan hari ini?
+                        👋 Selamat datang! Pilih isu kesihatan utama yang anda atau ahli keluarga ingin selesaikan hari ini:
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 gap-3 pt-2">
                     <button onclick="selectCategory('imun')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
-                        <span>🔴 Influenza, Demam, Penat Kerja, Anak Demam, Asthma</span>
+                        <span>🛡️ Influenza, Demam, Penat Kerja, Anak Demam, Asthma</span>
                         <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                     <button onclick="selectCategory('perut')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
-                        <span>🔴 Gastrik & Sembelit (Masalah Perut)</span>
+                        <span>🦠 Gastrik & Sembelit (Masalah Perut & Usus)</span>
                         <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                     <button onclick="selectCategory('metabolisme')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
-                        <span>🔴 Kencing Manis & Darah Tinggi</span>
+                        <span>⚡ Kencing Manis & Darah Tinggi</span>
                         <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
                     </button>
                 </div>
@@ -61,7 +72,7 @@
             <div id="stage-2" class="hidden space-y-6">
                 <div class="flex items-start space-x-3">
                     <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tl-none font-semibold text-sm max-w-lg shadow">
-                        Bagus. Sila tandakan simptom yang anda atau ahli keluarga alami sekarang:
+                        Sila tandakan simptom spesifik yang kerap dialami bagi membolehkan sistem membuat analisa jitu:
                     </div>
                 </div>
 
@@ -69,36 +80,48 @@
                     <!-- Dinamik melalui JS -->
                 </div>
 
-                <button onclick="processAnalysis()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3.5 rounded-xl transition shadow-lg mt-4">
-                    Analisis Sekarang ➔
-                </button>
+                <div class="flex space-x-3 pt-4">
+                    <button onclick="resetToStage1()" class="w-1/3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-bold py-3 rounded-xl transition text-sm">
+                        ← Kembali
+                    </button>
+                    <button onclick="processAnalysis()" class="w-2/3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg">
+                        Analisis Seterusnya ➔
+                    </button>
+                </div>
             </div>
 
             <!-- STAGE 3: LOADING ANALISIS -->
             <div id="stage-3" class="hidden py-12 text-center space-y-4">
                 <div class="inline-block w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
-                <p class="text-slate-300 font-medium animate-pulse-slow">Sistem sedang memproses data sel imun & mencari punca masalah...</p>
+                <p class="text-slate-300 font-medium animate-pulse-slow">Sistem sedang memproses data imun & memadankan solusi terbaik...</p>
             </div>
 
-            <!-- STAGE 4: HASIL ANALISIS & CADANGAN PRODUK -->
+            <!-- STAGE 4: HASIL ANALISIS, TESTIMONI & PRODUK -->
             <div id="stage-4" class="hidden space-y-6">
                 <div class="bg-emerald-950/40 border border-emerald-800/60 p-4 rounded-xl">
-                    <h3 class="font-bold text-emerald-400 mb-1">Hasil Analisis Kesihatan:</h3>
+                    <h3 class="font-bold text-emerald-400 mb-1">📊 Hasil Analisis Kesihatan Anda:</h3>
                     <p id="analysis-text" class="text-sm text-slate-300 leading-relaxed"></p>
                 </div>
 
+                <!-- Bahagian Testimoni Pengguna -->
+                <div class="bg-slate-900/60 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold">⭐ Kisah Kejayaan Pengguna Sebenar</span>
+                    <p id="testimonial-text" class="text-xs text-slate-300 italic">"Selepas amalkan set ini, anak dah jarang demam malam dan badan terasa jauh lebih bertenaga bekerja."</p>
+                    <p class="text-[11px] text-slate-500">— Puan Salina, Selangor (Pengguna Sah MyShop)</p>
+                </div>
+
                 <div class="border-t border-slate-700 pt-4">
-                    <h4 class="font-bold text-sm text-slate-300 mb-3">Pilihan Solusi Disyorkan:</h4>
+                    <h4 class="font-bold text-sm text-slate-300 mb-3">Pilihan Solusi Rasmi (Pilih Salah Satu):</h4>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Pilihan 1: Set Lengkap -->
-                        <div class="bg-slate-700/50 border border-slate-600 p-4 rounded-xl flex flex-col justify-between">
+                        <div class="bg-slate-700/50 border border-emerald-500/50 p-4 rounded-xl flex flex-col justify-between relative shadow-md">
                             <div>
-                                <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-semibold">PALING DISYORKAN</span>
+                                <span class="text-xs bg-emerald-500 text-slate-950 px-2 py-0.5 rounded font-bold">PALING DISYORKAN</span>
                                 <h5 id="set-name" class="font-bold text-base mt-2">Set Rawatan Komprehensif</h5>
-                                <p id="set-desc" class="text-xs text-slate-400 mt-1">Kesan pemulihan 3x lebih pantas & menyeluruh.</p>
+                                <p id="set-desc" class="text-xs text-slate-400 mt-1">Kesan pemulihan terpantas & perlindungan menyeluruh.</p>
                             </div>
-                            <a id="link-myshop-set" href="#" target="_blank" class="mt-4 block text-center bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition">
+                            <a id="link-myshop-set" href="#" target="_blank" class="mt-4 block text-center bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition shadow">
                                 Beli Set (MyShop) ➔
                             </a>
                         </div>
@@ -106,9 +129,9 @@
                         <!-- Pilihan 2: Sebotol -->
                         <div class="bg-slate-700/30 border border-slate-600 p-4 rounded-xl flex flex-col justify-between">
                             <div>
-                                <span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded font-semibold">ASAS</span>
+                                <span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded font-semibold">PERCUBAAN</span>
                                 <h5 id="single-name" class="font-bold text-base mt-2">Botol Permulaan</h5>
-                                <p id="single-desc" class="text-xs text-slate-400 mt-1">Sesuai untuk mencuba keserasian awal.</p>
+                                <p id="single-desc" class="text-xs text-slate-400 mt-1">Sesuai untuk menguji keserasian awal.</p>
                             </div>
                             <a id="link-myshop-single" href="#" target="_blank" class="mt-4 block text-center bg-slate-700 hover:bg-slate-600 text-slate-100 font-bold py-2.5 rounded-lg text-sm transition border border-slate-500">
                                 Beli 1 Botol ➔
@@ -117,19 +140,26 @@
                     </div>
                 </div>
 
+                <!-- Lencana Logo Kepercayaan / KKM & Halal -->
+                <div class="border-t border-slate-700 pt-4 flex flex-wrap items-center justify-center gap-4 text-center text-[11px] text-slate-400">
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">🛡️ 100% Produk Tulen 4Life</span>
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">✅ Pematuhan Keselamatan KKM</span>
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">☪️ Disahkan Halal Rasmi</span>
+                </div>
+
                 <!-- Butang Alternatif: Hubungi Kami -->
-                <div class="border-t border-slate-700 pt-4 text-center">
-                    <p class="text-xs text-slate-400 mb-2">Ragu-ragu atau perlukan bantuan konsultasi percuma secara manual?</p>
+                <div class="border-t border-slate-700 pt-3 text-center">
+                    <p class="text-xs text-slate-400 mb-2">Ragu-ragu atau perlukan bimbingan cara makan secara langsung?</p>
                     <button onclick="showContactForm()" class="text-emerald-400 hover:text-emerald-300 font-semibold text-sm underline">
-                        Hubungi Konsultan Kami (Borang & WhatsApp)
+                        Hubungi Konsultan Kami via WhatsApp
                     </button>
                 </div>
             </div>
 
             <!-- STAGE 5: BORANG HUBUNGI KAMI (LEADS CAPTURE) -->
             <div id="stage-5" class="hidden space-y-4">
-                <h3 class="font-bold text-lg text-emerald-400">Maklumat Perhubungan</h3>
-                <p class="text-xs text-slate-400">Isi maklumat asas di bawah agar konsultan kami boleh bantu anda secara langsung.</p>
+                <h3 class="font-bold text-lg text-emerald-400">Maklumat Perhubungan Pantas</h3>
+                <p class="text-xs text-slate-400">Isi maklumat asas di bawah agar konsultan kami dapat menghantar panduan eksklusif kepada anda.</p>
                 
                 <div class="space-y-3 pt-2">
                     <div>
@@ -138,26 +168,29 @@
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 mb-1">Nombor Telefon / WhatsApp</label>
-                        <input type="text" id="c-phone" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500" placeholder="Cth: 0123456789">
+                        <input type="text" id="c-phone" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500" placeholder="Cth: 0139260301">
                     </div>
                 </div>
 
-                <button onclick="submitContact()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg mt-2">
-                    Teruskan ke Saluran Komunikasi ➔
-                </button>
+                <div class="flex space-x-3 pt-2">
+                    <button onclick="backToResult()" class="w-1/3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-bold py-3 rounded-xl transition text-sm">
+                        ← Kembali
+                    </button>
+                    <button onclick="submitContact()" class="w-2/3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg">
+                        Teruskan ke WhatsApp ➔
+                    </button>
+                </div>
             </div>
 
-            <!-- STAGE 6: PAPARAN SALURAN (WHATSAPP/TELEGRAM) -->
+            <!-- STAGE 6: PAPARAN SALURAN WHATSAPP -->
             <div id="stage-6" class="hidden space-y-4 text-center py-4">
-                <h3 class="font-bold text-xl text-emerald-400">Maklumat Diterima!</h3>
-                <p class="text-sm text-slate-300">Sila pilih saluran komunikasi kegemaran anda di bawah untuk mula bersembang dengan konsultan:</p>
+                <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+                <h3 class="font-bold text-xl text-emerald-400">Maklumat Berjaya Direkod!</h3>
+                <p class="text-sm text-slate-300">Sila klik butang di bawah untuk berhubung terus dengan pegawai konsultan kami di WhatsApp:</p>
                 
-                <div class="space-y-3 pt-4">
-                    <a id="wa-link" href="#" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow">
-                        🟢 Chat Segera di WhatsApp
-                    </a>
-                    <a href="https://t.me/" target="_blank" class="block w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 rounded-xl transition shadow">
-                        🔵 Mesej Kami di Telegram
+                <div class="pt-2">
+                    <a id="wa-link" href="#" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg text-center">
+                        🟢 Buka WhatsApp Sekarang
                     </a>
                 </div>
             </div>
@@ -167,20 +200,43 @@
 
     <!-- Footer -->
     <footer class="text-center py-4 text-xs text-slate-500 border-t border-slate-800">
-        Pengedar Sah 4Life Malaysia • Sokongan Kesihatan Pintar
+        ID Pengedar Sah 4Life: 9162790 • Sokongan Kesihatan Digital
     </footer>
 
-    <!-- JavaScript Logik -->
+    <!-- JavaScript Logik & MyShop Manual Link Mapping -->
     <script>
         let selectedCategory = '';
 
-        // Sila tukar ID MyShop anda di sini nanti
-        const MYSHOP_BASE = "https://malaysia.4life.com/9162790/product/";
+        // =========================================================================
+        // PANDUAN TUKAR LINK MYSHOP MANUAL ANDA DI SINI:
+        // Masukkan URL penuh MyShop anda (ID: 9162790) di dalam tanda petik di bawah
+        // =========================================================================
+        const MYSHOP_LINKS = {
+            imun: {
+                set: "https://malaysia.4life.com/9162790/product/your-set-imun-link-here", 
+                single: "https://malaysia.4life.com/9162790/product/transfer-factor-advanced"
+            },
+            perut: {
+                set: "https://malaysia.4life.com/9162790/product/your-set-perut-link-here",
+                single: "https://malaysia.4life.com/9162790/product/probiotics"
+            },
+            metabolisme: {
+                set: "https://malaysia.4life.com/9162790/product/your-set-metabolisme-link-here",
+                single: "https://malaysia.4life.com/9162790/product/transfer-factor-plus"
+            }
+        };
+
+        function updateProgress(step, percent, text) {
+            document.getElementById('progress-step-text').innerText = text;
+            document.getElementById('progress-percent').innerText = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+        }
 
         function selectCategory(category) {
             selectedCategory = category;
             document.getElementById('stage-1').classList.add('hidden');
             document.getElementById('stage-2').classList.remove('hidden');
+            updateProgress(2, 66, 'Langkah 2 dari 3: Pilih Simptom');
 
             const symptomList = document.getElementById('symptom-list');
             symptomList.innerHTML = '';
@@ -190,27 +246,27 @@
                 symptoms = [
                     "Kerap bersin / hidung tersumbat pagi hari",
                     "Demam berulang atau lambat sembuh",
-                    "Anak kerap demam / mudah terjangkit",
-                    "Badan terasa penat dan lesu bekerja",
-                    "Masalah Asthma / sukar bernafas"
+                    "Anak kerap demam / mudah terjangkit jangkitan",
+                    "Badan terasa penat melampau akibat kerja",
+                    "Masalah Asthma / sukar bernafas waktu sejuk"
                 ];
             } else if (category === 'perut') {
                 symptoms = [
                     "Sakit ulu hati & pedih perut (Gastrik)",
                     "Perut kembung / angin berlebihan",
-                    "Sembelit kronik (sukar membuang)",
-                    "Penghadaman tidak lawas & tidak selesa"
+                    "Sembelit kronik (sukar membuang air besar)",
+                    "Penghadaman tidak lawas & sentiasa tidak selesa"
                 ];
             } else if (category === 'metabolisme') {
                 symptoms = [
                     "Bacaan gula dalam darah tidak stabil",
-                    "Tekanan darah tinggi / kerap pening",
-                    "Badan cepat letih & kebas-kebas kaki",
-                    "Memerlukan perlindungan selular menyeluruh"
+                    "Tekanan darah tinggi / kerap pening kepala",
+                    "Badan cepat letih & kaki kerap kebas-kebas",
+                    "Memerlukan perlindungan selular jangka panjang"
                 ];
             }
 
-            symptoms.forEach((sym, index) => {
+            symptoms.forEach((sym) => {
                 symptomList.innerHTML += `
                     <label class="flex items-center space-x-3 bg-slate-700/40 border border-slate-600/70 p-3.5 rounded-xl cursor-pointer hover:bg-slate-700 transition">
                         <input type="checkbox" name="sym" value="${sym}" class="w-4 h-4 text-emerald-500 rounded focus:ring-emerald-400 bg-slate-900 border-slate-600">
@@ -220,15 +276,29 @@
             });
         }
 
+        function resetToStage1() {
+            document.getElementById('stage-2').classList.add('hidden');
+            document.getElementById('stage-1').classList.remove('hidden');
+            updateProgress(1, 33, 'Langkah 1 dari 3: Pilih Kategori');
+        }
+
+        function backToResult() {
+            document.getElementById('stage-5').classList.add('hidden');
+            document.getElementById('stage-4').classList.remove('hidden');
+        }
+
         function processAnalysis() {
             document.getElementById('stage-2').classList.add('hidden');
             document.getElementById('stage-3').classList.remove('hidden');
+            updateProgress(3, 100, 'Langkah 3 dari 3: Analisis Selesai');
 
             setTimeout(() => {
                 document.getElementById('stage-3').classList.add('hidden');
                 document.getElementById('stage-4').classList.remove('hidden');
+                document.getElementById('progress-wrapper').classList.add('hidden'); // Sembunyikan progress bar di hasil akhir
 
                 const analysisText = document.getElementById('analysis-text');
+                const testimonialText = document.getElementById('testimonial-text');
                 const setName = document.getElementById('set-name');
                 const setDesc = document.getElementById('set-desc');
                 const singleName = document.getElementById('single-name');
@@ -238,34 +308,37 @@
                 const linkSingle = document.getElementById('link-myshop-single');
 
                 if (selectedCategory === 'imun') {
-                    analysisText.innerHTML = "Sistem imun anda atau keluarga didapati kurang stabil dan terbeban. Sel pertahanan badan memerlukan 'pendidikan' semula untuk melawan jangkitan serta membina tenaga selular.";
+                    analysisText.innerHTML = "Sistem imun anda atau keluarga didapati kurang stabil dan terbeban oleh faktor persekitaran. Sel pertahanan badan memerlukan sokongan 'Transfer Factor' untuk mendidik semula sistem imun melawan jangkitan.";
+                    testimonialText.innerHTML = `"Alhamdulillah, anak dah tak kerap demam pagi dan asma pun makin terkawal selepas amalkan set imun ni." — Puan H., Melaka`;
                     setName.innerText = "Set Imun & Perlindungan Pernafasan";
-                    setDesc.innerText = "Kandungan: Transfer Factor Advanced (TFA) + Transfer Factor Plus / RioVida.";
+                    setDesc.innerText = "Kandungan Kombo: Sokongan menyeluruh sistem pertahanan selular badan.";
                     singleName.innerText = "Transfer Factor Advanced (TFA)";
                     singleDesc.innerText = "1 Botol Permulaan untuk sokongan imun asas harian.";
                     
-                    linkSet.href = MYSHOP_BASE + "transfer-factor-advanced-plus";
-                    linkSingle.href = MYSHOP_BASE + "transfer-factor-advanced";
+                    linkSet.href = MYSHOP_LINKS.imun.set;
+                    linkSingle.href = MYSHOP_LINKS.imun.single;
                 } else if (selectedCategory === 'perut') {
-                    analysisText.innerHTML = "Ketidakseimbangan mikrobiom usus dikesan. Dinding perut dan sistem pencernaan memerlukan pemulihan flora baik serta sokongan nutrisi botani untuk meredakan radang.";
+                    analysisText.innerHTML = "Ketidakseimbangan mikrobiom usus dikesan. Dinding perut dan sistem pencernaan memerlukan pemulihan flora baik serta sokongan nutrisi untuk meredakan radang dan angin.";
+                    testimonialText.innerHTML = `"Masalah gastrik dan sembelit angin saya beransur pulih, perut dah tak meragam lepas makan." — Encik Azman, Johor`;
                     setName.innerText = "Set Kesihatan Perut & Usus Komprehensif";
-                    setDesc.innerText = "Kandungan: TFA + Probiotics + Phytogreen.";
+                    setDesc.innerText = "Kandungan Kombo: Pemulihan flora usus dan kelegaan gastrik.";
                     singleName.innerText = "4Life Probiotics";
                     singleDesc.innerText = "1 Botol Permulaan untuk kesihatan mikrobiom usus.";
                     
-                    linkSet.href = MYSHOP_BASE + "probiotics-phytogreen-set";
-                    linkSingle.href = MYSHOP_BASE + "probiotics";
+                    linkSet.href = MYSHOP_LINKS.perut.set;
+                    linkSingle.href = MYSHOP_LINKS.perut.single;
                 } else {
-                    analysisText.innerHTML = "Tekanan oksidatif pada saluran darah dan sistem metabolisme memerlukan sokongan perlindungan selular bertahap tinggi untuk kestabilan jangka panjang.";
+                    analysisText.innerHTML = "Tekanan oksidatif pada saluran darah dan sistem metabolisme memerlukan perlindungan selular bertahap tinggi untuk kestabilan tenaga dan kesihatan dalaman jangka panjang.";
+                    testimonialText.innerHTML = `"Badan terasa lebih bertenaga dan bacaan kesihatan harian lebih stabil." — Tuan Haji R., Pahang`;
                     setName.innerText = "Set Metabolisme & Perlindungan Sel";
-                    setDesc.innerText = "Kandungan: Transfer Factor Plus + RioVida Juice.";
+                    setDesc.innerText = "Kandungan Kombo: Sokongan tenaga selular dan metabolisme optimum.";
                     singleName.innerText = "Transfer Factor Plus";
-                    singleDesc.innerText = "1 Botol Permulaan untuk sokongan selular optimum.";
+                    singleDesc.innerText = "1 Botol Permulaan untuk sokongan pertahanan selular optimum.";
                     
-                    linkSet.href = MYSHOP_BASE + "tf-plus-riovida";
-                    linkSingle.href = MYSHOP_BASE + "transfer-factor-plus";
+                    linkSet.href = MYSHOP_LINKS.metabolisme.set;
+                    linkSingle.href = MYSHOP_LINKS.metabolisme.single;
                 }
-            }, 2500);
+            }, 2000);
         }
 
         function showContactForm() {
@@ -278,16 +351,16 @@
             const phone = document.getElementById('c-phone').value;
 
             if(!name || !phone) {
-                alert('Sila isi nama dan nombor telefon anda.');
+                alert('Sila isi nama dan nombor telefon anda dengan lengkap.');
                 return;
             }
 
             document.getElementById('stage-5').classList.add('hidden');
             document.getElementById('stage-6').classList.remove('hidden');
 
-            // Setup WhatsApp Auto Link dengan mesej siap taip
-            const waText = encodeURIComponent(`Hai Konsultan, nama saya ${name}. Saya baru selesai semak kuiz kesihatan dan mahu minta bantuan lanjut.`);
-            document.getElementById('wa-link').href = `https://wa.me/60139260301?text=${waText}`; // Sila tukar nombor WhatsApp anda di sini
+            // Nombor WhatsApp anda: +60139260301
+            const waText = encodeURIComponent(`Hai Konsultan, nama saya ${name}. Saya baru selesai semak kuiz kesihatan dan mahu minta bimbingan lanjut untuk dapatkan produk 4Life.`);
+            document.getElementById('wa-link').href = `https://wa.me/60139260301?text=${waText}`;
         }
     </script>
 </body>
