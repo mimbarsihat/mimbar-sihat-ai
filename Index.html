@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mimbar Sihat AI - Ujian Penilaian Kesihatan & Sistem Imun Percuma</title>
+  <meta name="description" content="Ketahui punca sebenar masalah demam kerap, asma, gastrik pedih ulu hati, atau kelesuan metabolik anda dengan saringan kesihatan 2 minit.">
+  <!-- Tailwind CSS CDN for instant, zero-build deployment on GitHub Pages -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- TOP BAR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-sm">
+          MS
+        </div>
+        <span class="font-bold text-base tracking-tight text-slate-900">Mimbar Sihat AI</span>
+      </div>
+      <div class="text-xs text-slate-500 hidden sm:block">
+        Perunding Sah 4Life ID: 9162790
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-3xl mx-auto px-4 py-8 flex-1 w-full">
+    
+    <!-- STEP 0: HERO & START -->
+    <div id="step-0" class="space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm text-center sm:text-left">
+        <div class="inline-block text-xs font-semibold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-md">
+          Saringan Kesihatan & Imuniti 2 Minit
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
+          Ketahui Punca Sebenar Masalah Kesihatan Anda Dari Peringkat Selular
+        </h1>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Bukan sekadar menelan ubat penahan sakit sementara. Saring tahap kesihatan tubuh anda untuk mengenal pasti sama ada masalah berpunca daripada sistem imun, saluran pencernaan, atau peredaran darah metabolik.
+        </p>
+
+        <!-- 3 Pillars list -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-left">
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-xs font-bold text-slate-900">01. Imun & Pernafasan</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Demam berulang, flu, asma & kelesuan</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-xs font-bold text-slate-900">02. Usus & Gastrik</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">GERD, pedih ulu hati, sembelit & angin</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="text-xs font-bold text-slate-900">03. Metabolik & Jantung</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Gula tinggi, darah tinggi & salur darah</div>
+          </div>
+        </div>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center gap-3">
+          <button onclick="goToStep(1)" class="w-full sm:w-auto px-6 py-3.5 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm rounded-xl transition-all shadow-sm">
+            Mula Saringan Percuma Sekarang
+          </button>
+          <span class="text-xs text-slate-500">100% Percuma · Sulit · Hasil Segera</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: PROFIL -->
+    <div id="step-1" class="hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-5 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900">Langkah 1: Maklumat Profil Ringkas</h2>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Nama atau Panggilan Anda:</label>
+          <input type="text" id="user-name" placeholder="Contoh: Puan Siti / Encik Rahim" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Peringkat Umur:</label>
+          <select id="user-age" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm">
+            <option value="adult">Dewasa (18 - 50 tahun)</option>
+            <option value="child">Kanak-kanak (< 12 tahun)</option>
+            <option value="senior">Warga Emas (50+ tahun)</option>
+          </select>
+        </div>
+        <div class="flex justify-between pt-4 border-t border-slate-100">
+          <button onclick="goToStep(0)" class="text-xs text-slate-500">Kembali</button>
+          <button onclick="goToStep(2)" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg">
+            Seterusnya: Kategori Isu
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: KATEGORI ISU -->
+    <div id="step-2" class="hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900">Langkah 2: Pilih Fokus Kesihatan Utama</h2>
+        
+        <div class="space-y-3">
+          <div onclick="selectCategory('immunity')" id="cat-btn-immunity" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-600 cursor-pointer flex items-center justify-between">
+            <div>
+              <div class="font-bold text-sm text-slate-900">1. Sistem Imun & Pernafasan</div>
+              <div class="text-xs text-slate-500">Demam kerap, influenza, asma, sinus & kelesuan</div>
+            </div>
+            <span class="text-xs text-emerald-700 font-semibold">Pilih</span>
+          </div>
+
+          <div onclick="selectCategory('gut')" id="cat-btn-gut" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-600 cursor-pointer flex items-center justify-between">
+            <div>
+              <div class="font-bold text-sm text-slate-900">2. Kesihatan Usus & Penghadaman</div>
+              <div class="text-xs text-slate-500">Gastrik, GERD, pedih ulu hati, sembelit kronik & angin lesu</div>
+            </div>
+            <span class="text-xs text-emerald-700 font-semibold">Pilih</span>
+          </div>
+
+          <div onclick="selectCategory('metabolic')" id="cat-btn-metabolic" class="p-4 rounded-xl border border-slate-200 hover:border-emerald-600 cursor-pointer flex items-center justify-between">
+            <div>
+              <div class="font-bold text-sm text-slate-900">3. Sistem Metabolik & Kesihatan Jantung</div>
+              <div class="text-xs text-slate-500">Bacaan gula kencing manis, darah tinggi & peredaran darah</div>
+            </div>
+            <span class="text-xs text-emerald-700 font-semibold">Pilih</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between pt-4 border-t border-slate-100">
+          <button onclick="goToStep(1)" class="text-xs text-slate-500">Kembali</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: PILIH SIMPTOM -->
+    <div id="step-3" class="hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900">Langkah 3: Tandakan Simptom Yang Dirasai</h2>
+        <div id="symptoms-container" class="space-y-2.5">
+          <!-- Populated by JS based on selected category -->
+        </div>
+        <div class="flex justify-between pt-4 border-t border-slate-100">
+          <button onclick="goToStep(2)" class="text-xs text-slate-500">Kembali</button>
+          <button onclick="showResults()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg">
+            Lihat Analisis & Protokol
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: KEPUTUSAN & WHATSAPP CTA -->
+    <div id="step-4" class="hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-5 shadow-sm">
+        <div class="border-b border-slate-100 pb-4">
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-800">Laporan Penilaian AI</span>
+          <h2 id="result-title" class="text-xl font-bold text-slate-900 mt-1">Keputusan Anda</h2>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2 leading-relaxed">
+          <div class="font-bold text-slate-900">Analisis Akar Masalah:</div>
+          <p id="result-analysis">Memuatkan analisis...</p>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-sm text-slate-900">Cadangan Protokol Pemulihan Nutrisi:</div>
+          <div id="protocol-container" class="space-y-2 text-xs">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- WHATSAPP CTA BUTTON -->
+        <div class="p-6 rounded-2xl bg-emerald-900 text-white space-y-4">
+          <h3 class="text-lg font-bold">Hantar Keputusan Ini ke WhatsApp Perunding</h3>
+          <p class="text-xs text-emerald-100">
+            Dapatkan bimbingan dos yang tepat dan semakan kelayakan Harga Ahli Kilang (Jimat sehingga 25%).
+          </p>
+          <a id="whatsapp-btn" href="#" target="_blank" class="block text-center py-3 px-6 bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold rounded-xl text-sm transition-all shadow">
+            WhatsApp Perunding (+60139260301)
+          </a>
+          <div class="text-[11px] text-emerald-300 text-center">
+            ID Perunding Berdaftar: 9162790
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <button onclick="goToStep(0)" class="text-xs text-slate-500 hover:text-slate-800">
+            Ulang Semula Penilaian
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
+    <p>© Mimbar Sihat AI · Perunding Kesihatan Bebas 4Life Research (ID: 9162790)</p>
+    <p class="text-[11px] text-slate-400 mt-1">Maklumat ini bertujuan pendidikan kesihatan dan bukan pengganti nasihat perubatan profesional.</p>
+  </footer>
+
+  <script>
+    let currentCategory = '';
+    let selectedSymptoms = [];
+
+    const symptomsData = {
+      immunity: [
+        { id: 'flu', label: 'Kerap Selesema & Influenza Berulang' },
+        { id: 'fever', label: 'Demam Berpanjangan / Kerap Jatuh Sakit' },
+        { id: 'fatigue', label: 'Kelesuan Kronik (Bangun Pagi Tetap Letih)' },
+        { id: 'kids', label: 'Demam & Batuk Kanak-kanak Berselang Minggu' },
+        { id: 'asthma', label: 'Asma / Sesak Nafas / Resdung Alahan Pagi' }
+      ],
+      gut: [
+        { id: 'gastric', label: 'Gastrik, GERD & Pedih Ulu Hati Berasid' },
+        { id: 'constipation', label: 'Sembelit Kronik / Sukar Membuang Air Besar' },
+        { id: 'bloat', label: 'Kembung Perut Berangin & Ketidakhadaman' }
+      ],
+      metabolic: [
+        { id: 'diabetes', label: 'Bacaan Gula Tinggi / Kencing Manis' },
+        { id: 'hypertension', label: 'Tekanan Darah Tinggi / Tengkuk Tegang' },
+        { id: 'cholesterol', label: 'Kolesterol Tinggi & Kebas Hujung Jari' }
+      ]
+    };
+
+    const protocolData = {
+      immunity: [
+        { name: '4Life Transfer Factor® Advanced (TFA)', desc: 'Mendidik & menstabilkan memori sel imun badan.' },
+        { name: '4Life Transfer Factor Plus® Tri-Factor®', desc: 'Meningkatkan aktiviti sel pembunuh semulajadi (NK Cells) sehingga 437%.' },
+        { name: '4Life Transfer Factor® RioVida® Liquid', desc: 'Antioksidan beri pekat untuk stamina dan salur darah.' }
+      ],
+      gut: [
+        { name: '4Life Transfer Factor® Advanced (TFA)', desc: 'Menstabilkan keradangan pada lapisan mukosa usus.' },
+        { name: '4Life Pre/o Biotics™', desc: '5 strain mikrokapsul probiotik hidup tahan asid perut.' },
+        { name: '4Life Phytogreen®', desc: 'Ekstrak sayuran hijau mengalkalikan perut dan mencuci toksin.' }
+      ],
+      metabolic: [
+        { name: '4Life Transfer Factor Plus® Tri-Factor®', desc: 'Sokongan metabolik berkuasa tinggi dan perlindungan selular.' },
+        { name: '4Life Transfer Factor® RioVida® Liquid', desc: 'Super-antioksidan Açai & Pomegranate untuk peredaran darah mikro.' }
+      ]
+    };
+
+    function goToStep(step) {
+      for (let i = 0; i <= 4; i++) {
+        const el = document.getElementById('step-' + i);
+        if (el) el.classList.add('hidden');
+      }
+      document.getElementById('step-' + step).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectCategory(cat) {
+      currentCategory = cat;
+      const container = document.getElementById('symptoms-container');
+      container.innerHTML = '';
+      selectedSymptoms = [];
+
+      symptomsData[cat].forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'p-3 rounded-xl border border-slate-200 cursor-pointer flex items-center gap-3 text-xs';
+        div.innerHTML = `<input type="checkbox" id="sym-${s.id}" value="${s.label}" class="w-4 h-4 accent-emerald-600"> <label for="sym-${s.id}" class="cursor-pointer font-medium text-slate-800">${s.label}</label>`;
+        div.onclick = function(e) {
+          if (e.target.tagName !== 'INPUT') {
+            const cb = div.querySelector('input');
+            cb.checked = !cb.checked;
+          }
+        };
+        container.appendChild(div);
+      });
+
+      goToStep(3);
+    }
+
+    function showResults() {
+      const name = document.getElementById('user-name').value.trim() || 'Hamba Allah';
+      const checkboxes = document.querySelectorAll('#symptoms-container input[type="checkbox"]:checked');
+      const selected = Array.from(checkboxes).map(c => c.value);
+
+      document.getElementById('result-title').innerText = 'Keputusan Saringan: ' + name;
+      
+      const analysisEl = document.getElementById('result-analysis');
+      if (currentCategory === 'immunity') {
+        analysisEl.innerText = 'Sistem pertahanan badan anda menunjukkan tanda kelemahan koordinasi selular atau keletihan sel pembunuh semulajadi (NK Cells). Anda memerlukan modulasi molekul untuk mendidik semula sel imun agar kenal dan bertindak tangkas.';
+      } else if (currentCategory === 'gut') {
+        analysisEl.innerText = 'Lapisan mukosa perut dan mikrobiom usus anda berada dalam keadaan terlalu berasid atau terhakis. Pengambilan bakteria baik yang dilindungi kapsul ganda serta alkali hijau adalah kunci pemulihan jangka panjang.';
+      } else {
+        analysisEl.innerText = 'Salur darah mikro dan sel metabolik anda mengalami stres oksidatif akibat beban gula atau ketegangan vaskular. Antioksidan tulen bertaraf perubatan amat diperlukan bagi membersihkan radikal bebas.';
+      }
+
+      const protoContainer = document.getElementById('protocol-container');
+      protoContainer.innerHTML = '';
+      const items = protocolData[currentCategory] || [];
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-lg bg-emerald-50/60 border border-emerald-200 text-xs';
+        card.innerHTML = `<div class="font-bold text-emerald-950">${item.name}</div><div class="text-emerald-800 mt-0.5">${item.desc}</div>`;
+        protoContainer.appendChild(card);
+      });
+
+      // Format WhatsApp text
+      const productNames = items.map(p => p.name).join(' + ');
+      const symText = selected.length > 0 ? selected.join(', ') : 'Simptom Umum';
+      const message = `Salam Sejahtera Perunding Mimbar Sihat,
+
+Saya selesai membuat Ujian Saringan di mimbarsihat.github.io.
+
+• Nama: ${name}
+• Fokus: ${currentCategory === 'immunity' ? 'Imun & Pernafasan' : currentCategory === 'gut' ? 'Usus & Gastrik' : 'Metabolik & Jantung'}
+• Simptom: ${symText}
+
+Protokol Dicadangkan: ${productNames}
+Rujukan Pendaftaran Ahli: 4Life ID 9162790
+
+Saya ingin memohon sesi konsultasi dos peribadi & semakan Harga Ahli Kilang (Jimat sehingga 25%). Terima kasih!`;
+
+      const waBtn = document.getElementById('whatsapp-btn');
+      waBtn.href = 'https://wa.me/60139260301?text=' + encodeURIComponent(message);
+
+      goToStep(4);
+    }
+  </script>
+</body>
+</html>
