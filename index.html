@@ -1,288 +1,439 @@
-<!doctype html>
-<html lang="ms" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="ms">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mimbar Sihat — Semakan Kesihatan &amp; Panduan Penjagaan Keluarga</title>
-  <meta name="description" content="Semak keluhan kesihatan harian anda dengan tenang bersama panduan mesra untuk memilih sokongan pemakanan 4Life yang sesuai buat diri dan keluarga." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
-    .font-display { font-family: 'Fraunces', Georgia, serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saringan Kesihatan Harian & Sokongan Produk 4Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 2s infinite;
+        }
+    </style>
 </head>
-<body class="bg-[#FAF9F6] text-[#182924] antialiased">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between font-sans">
 
-  <!-- Top Bar -->
-  <header class="bg-[#FAF9F6] border-b border-[#E4EBE6]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
-      <a href="#atas" class="font-display text-lg font-semibold tracking-tight text-[#182924] whitespace-nowrap shrink-0">Mimbar Sihat</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-[#4A5D56]">
-        <a href="#semak-simptom" class="hover:text-[#182924] transition-colors whitespace-nowrap shrink-0">Semak Simptom</a>
-        <a href="#pilihan-penjagaan" class="hover:text-[#182924] transition-colors whitespace-nowrap shrink-0">Pilihan Penjagaan</a>
-        <a href="#kisah-pengguna" class="hover:text-[#182924] transition-colors whitespace-nowrap shrink-0">Kisah Pengguna</a>
-        <a href="#soalan-lazim" class="hover:text-[#182924] transition-colors whitespace-nowrap shrink-0">Soalan Lazim</a>
-      </nav>
-      <a href="#semak-simptom" class="px-4 py-2 rounded-lg bg-[#0F5E4D] text-white text-xs sm:text-sm font-semibold hover:bg-[#0B4A3C] transition-colors whitespace-nowrap shrink-0">Mulakan Semakan</a>
-    </div>
-  </header>
-
-  <main id="atas">
-    <!-- Hero -->
-    <section class="py-12 md:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          <div class="lg:col-span-6 flex flex-col justify-center">
-            <p class="text-sm font-medium text-[#0F5E4D] mb-3">Panduan Kesihatan Keluarga · Bahasa Mudah &amp; Mesra</p>
-            <h1 class="font-display text-4xl sm:text-5xl font-semibold tracking-tight text-[#182924] leading-[1.15]">
-              Dengar tanda lembut dari badan anda, dan pilih penjagaan yang paling sesuai
-            </h1>
-            <p class="mt-5 text-base text-[#4A5D56] leading-relaxed max-w-xl">
-              Sama ada anak kecil kerap demam, perut mudah pedih berangin, atau badan cepat letih seharian, mari semak bersama dengan tenang. Kami bantu terangkan punca ringkas dan cadangkan sokongan pemakanan 4Life yang tepat untuk keluarga anda.
-            </p>
-            <div class="mt-8 flex flex-col sm:flex-row gap-3">
-              <a href="#semak-simptom" class="inline-flex items-center justify-center py-3.5 px-6 rounded-xl bg-[#0F5E4D] text-white text-sm font-semibold hover:bg-[#0B4A3C] transition-colors whitespace-nowrap">
-                Semak Keadaan Badan Sekarang
-              </a>
-              <a href="https://wa.me/60139260301?text=Assalamualaikum%20%2F%20Salam%20sejahtera.%20Saya%20ingin%20bertanya%20secara%20lembut%20tentang%20pilihan%204Life%20yang%20sesuai%20untuk%20kesihatan%20keluarga%20saya." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center py-3.5 px-6 rounded-xl bg-white border border-[#CFDAD3] text-[#182924] text-sm font-semibold hover:bg-[#F1F6F3] transition-colors whitespace-nowrap">
-                Berbual di WhatsApp
-              </a>
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 py-4 px-6 shadow-md">
+        <div class="max-w-2xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-emerald-500 rounded-full animate-ping"></div>
+                <span class="font-bold text-lg tracking-wide text-emerald-400">Nurse AI Kesihatan</span>
             </div>
-          </div>
-          <div class="lg:col-span-6 bg-[#EBF1ED] border border-[#DCE5DF] rounded-2xl p-8 flex flex-col justify-between">
-            <div class="space-y-4">
-              <p class="text-xs font-semibold text-[#0F5E4D]">Nota Mesra Untuk Anda</p>
-              <blockquote class="font-display text-2xl text-[#182924] leading-snug">
-                &ldquo;Penjagaan kesihatan yang baik bermula dengan rasa tenang. Tidak perlu istilah perubatan yang rumit—cukup fahami apa yang badan cuba sampaikan hari ini.&rdquo;
-              </blockquote>
-            </div>
-            <div class="mt-8 pt-6 border-t border-[#D3DFD8] grid grid-cols-2 gap-4 text-xs text-[#4A5D56]">
-              <div>
-                <p class="font-semibold text-[#182924]">ID Pengedar Rasmi</p>
-                <p class="mt-0.5 tabular-nums">9162790</p>
-              </div>
-              <div>
-                <p class="font-semibold text-[#182924]">Talian Nasihat WhatsApp</p>
-                <p class="mt-0.5 tabular-nums">+6013-926 0301</p>
-              </div>
-            </div>
-          </div>
+            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full font-medium">Panduan Mesra &amp; Selamat</span>
         </div>
+    </header>
 
-        <!-- 4-Column Trust Strip -->
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-      <div class="bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <p class="text-xs font-semibold tracking-wide text-[#0F5E4D] mb-1.5">HALAL</p>
-        <h3 class="text-sm font-semibold text-[#182924]">Diiktiraf Halal IFANCA & JAKIM</h3>
-        <p class="mt-1.5 text-xs text-[#4A5D56] leading-relaxed">Boleh diamalkan dengan yakin dan tenang oleh seisi keluarga Muslim tanpa rasa ragu-ragu.</p>
-      </div>
-      <div class="bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <p class="text-xs font-semibold tracking-wide text-[#0F5E4D] mb-1.5">KKM</p>
-        <h3 class="text-sm font-semibold text-[#182924]">Berdaftar & Mematuhi Garis Panduan KKM</h3>
-        <p class="mt-1.5 text-xs text-[#4A5D56] leading-relaxed">Produk pemakanan kesihatan rasmi yang berdaftar di Malaysia dan diuji keselamatannya.</p>
-      </div>
-      <div class="bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <p class="text-xs font-semibold tracking-wide text-[#0F5E4D] mb-1.5">RASMI</p>
-        <h3 class="text-sm font-semibold text-[#182924]">Terus Dari Gudang Rasmi 4Life Malaysia</h3>
-        <p class="mt-1.5 text-xs text-[#4A5D56] leading-relaxed">Setiap pesanan melalui ID Pengedar Sah 9162790 dijamin asli, segar dan bertarikh luput baik.</p>
-      </div>
-      <div class="bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <p class="text-xs font-semibold tracking-wide text-[#0F5E4D] mb-1.5">IKHTIAR</p>
-        <h3 class="text-sm font-semibold text-[#182924]">Sokongan Pemakanan Mesra Keluarga</h3>
-        <p class="mt-1.5 text-xs text-[#4A5D56] leading-relaxed">Dirumus sebagai ikhtiar sokongan harian dan tidak menggantikan nasihat atau rawatan doktor anda.</p>
-      </div>
-        </div>
-      </div>
-    </section>
+    <!-- Main Container -->
+    <main class="max-w-2xl w-full mx-auto p-4 md:p-6 flex-1 flex flex-col justify-center">
 
-    <!-- Interactive Symptom Assessment -->
-    <section id="semak-simptom" class="py-16 border-t border-[#E4EBE6]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10">
-          <p class="text-sm font-medium text-[#0F5E4D] mb-2">01. Semakan Kesihatan Harian</p>
-          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-[#182924]">
-            Tarik nafas tenang, mari semak apa yang badan anda perlukan hari ini
-          </h2>
-          <p class="mt-3 text-base text-[#4A5D56] leading-relaxed">
-            Pilih situasi anda di bawah dalam tiga langkah mudah. Kami akan terangkan sebab ringkas dalam bahasa harian bersama cadangan penjagaan yang sesuai.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-6 bg-white border border-[#DCE5DF] rounded-2xl p-6 sm:p-8 space-y-8">
-            <div>
-              <h3 class="text-base font-semibold text-[#182924] mb-4">Langkah 1 · Untuk siapa semakan ini?</h3>
-              <div id="who-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        <!-- Progress Bar -->
+        <div id="progress-wrapper" class="mb-4">
+            <div class="flex justify-between text-xs text-slate-400 mb-1">
+                <span id="progress-step-text">Langkah 1 dari 3: Pilih Masalah Utama</span>
+                <span id="progress-percent">33%</span>
             </div>
-            <hr class="border-[#E8EFEA]" />
-            <div>
-              <h3 class="text-base font-semibold text-[#182924] mb-4">Langkah 2 · Pilih bahagian kesihatan utama</h3>
-              <div id="category-options" class="space-y-2.5"></div>
-            </div>
-            <hr class="border-[#E8EFEA]" />
-            <div>
-              <h3 class="text-base font-semibold text-[#182924] mb-4">Langkah 3 · Tanda-tanda yang sering dirasai</h3>
-              <div id="symptom-options" class="space-y-2.5"></div>
-            </div>
-          </div>
-
-          <div id="result-panel" class="lg:col-span-6 bg-white border border-[#DCE5DF] rounded-2xl p-6 sm:p-8 space-y-6"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Care Categories Overview -->
-    <section id="pilihan-penjagaan" class="py-16 border-t border-[#E4EBE6]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10">
-          <p class="text-sm font-medium text-[#0F5E4D] mb-2">02. Pilihan Penjagaan Mengikut Keperluan</p>
-          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-[#182924]">
-            Tiga fokus penjagaan utama untuk keselesaan seisi rumah
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-            <div class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between">
-              <div>
-                <p class="text-sm font-semibold text-[#0F5E4D] mb-2">01.</p>
-                <h3 class="font-display text-xl font-semibold text-[#182924]">Pertahanan Badan & Pernafasan</h3>
-                <p class="mt-2.5 text-sm text-[#4A5D56] leading-relaxed">Untuk badan yang mudah demam, selesema berulang, cepat letih, anak kecil tidak sihat atau dada mudah rasa sempit.</p>
-              </div>
-              <div class="mt-5 pt-4 border-t border-[#E4EBE6]">
-                <p class="text-xs font-medium text-[#182924] mb-1">Cadangan padanan:</p>
-                <p class="text-xs text-[#4A5D56]">Transfer Factor Advanced (TFA) · Transfer Factor Plus · RioVida (Jus / Sachet Burst)</p>
-              </div>
-            </div>
-            <div class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between">
-              <div>
-                <p class="text-sm font-semibold text-[#0F5E4D] mb-2">02.</p>
-                <h3 class="font-display text-xl font-semibold text-[#182924]">Perut & Penghadaman</h3>
-                <p class="mt-2.5 text-sm text-[#4A5D56] leading-relaxed">Untuk perut yang mudah pedih gastrik, sebu angin, susah membuang air besar (sembelit) atau kembung selepas makan.</p>
-              </div>
-              <div class="mt-5 pt-4 border-t border-[#E4EBE6]">
-                <p class="text-xs font-medium text-[#182924] mb-1">Cadangan padanan:</p>
-                <p class="text-xs text-[#4A5D56]">Transfer Factor Advanced (TFA) · Probiotics (Pre/o Biotics) · Phytogreen</p>
-              </div>
-            </div>
-            <div class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between">
-              <div>
-                <p class="text-sm font-semibold text-[#0F5E4D] mb-2">03.</p>
-                <h3 class="font-display text-xl font-semibold text-[#182924]">Tenaga & Keseimbangan Harian</h3>
-                <p class="mt-2.5 text-sm text-[#4A5D56] leading-relaxed">Untuk menjaga bacaan gula, menstabilkan rutin tekanan darah, serta melindungi tubuh yang penat bekerja atau semakin berusia.</p>
-              </div>
-              <div class="mt-5 pt-4 border-t border-[#E4EBE6]">
-                <p class="text-xs font-medium text-[#182924] mb-1">Cadangan padanan:</p>
-                <p class="text-xs text-[#4A5D56]">Transfer Factor Plus · RioVida (Jus / Sachet Burst)</p>
-              </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-700">
+                <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-300" style="width: 33%;"></div>
             </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="kisah-pengguna" class="py-16 border-t border-[#E4EBE6]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10">
-          <p class="text-sm font-medium text-[#0F5E4D] mb-2">03. Pengalaman Sebenar Pengguna</p>
-          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-[#182924]">
-            Ikhtiar tenang yang membantu rutin harian keluarga di Malaysia
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-      <article class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <p class="text-xs font-medium text-[#0F5E4D]">Pertahanan Badan & Anak</p>
-          <div class="space-y-2.5 text-sm text-[#364842] leading-relaxed">
-            <p><strong class="text-[#182924]">Sebelum:</strong> Sebelum ini, anak bongsu berumur 5 tahun hampir setiap bulan demam dan selesema selepas pulang dari tadika.</p>
-            <p><strong class="text-[#182924]">Perubahan:</strong> Saya mula jaga waktu tidurnya, tambah air kosong dan beri minuman beri RioVida setiap pagi bersama Transfer Factor Advanced.</p>
-            <p><strong class="text-[#182924]">Hasil:</strong> Selepas hampir 2 bulan konsisten, anak nampak lebih cergas ke sekolah, selera makan bertambah dan jarang tidak sihat lagi.</p>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-[#E4EBE6]">
-          <p class="text-sm font-semibold text-[#182924]">Puan Norhayati binti Razak</p>
-          <p class="text-xs text-[#4A5D56]">Ibu kepada 3 orang anak · Shah Alam</p>
-        </div>
-      </article>
-      <article class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <p class="text-xs font-medium text-[#0F5E4D]">Perut & Penghadaman</p>
-          <div class="space-y-2.5 text-sm text-[#364842] leading-relaxed">
-            <p><strong class="text-[#182924]">Sebelum:</strong> Jadual mengajar yang padat menyebabkan saya selalu lewat makan, lalu perut kerap pedih gastrik, berangin dan kembung.</p>
-            <p><strong class="text-[#182924]">Perubahan:</strong> Saya ubah jadual makan kepada porsi kecil yang lebih teratur, serta amalkan Probiotics sebelum sarapan bersama Transfer Factor Advanced.</p>
-            <p><strong class="text-[#182924]">Hasil:</strong> Sekarang perut terasa jauh lebih tenang dan ringan; tidak lagi rasa mencucuk di ulu hati walaupun sibuk di sekolah.</p>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-[#E4EBE6]">
-          <p class="text-sm font-semibold text-[#182924]">Encik Zulkifli bin Hassan</p>
-          <p class="text-xs text-[#4A5D56]">Guru sekolah menengah · Kuantan</p>
-        </div>
-      </article>
-      <article class="bg-white border border-[#DCE5DF] rounded-2xl p-6 flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <p class="text-xs font-medium text-[#0F5E4D]">Tenaga & Keseimbangan Harian</p>
-          <div class="space-y-2.5 text-sm text-[#364842] leading-relaxed">
-            <p><strong class="text-[#182924]">Sebelum:</strong> Menjelang petang, badan cepat rasa lemah, lenguh dan sukar lena malam walaupun sudah berehat di rumah.</p>
-            <p><strong class="text-[#182924]">Perubahan:</strong> Anak cadangkan untuk terus makan ubat klinik seperti biasa sambil tambah Transfer Factor Plus dan RioVida sebagai sokongan pemakanan harian.</p>
-            <p><strong class="text-[#182924]">Hasil:</strong> Alhamdulillah, badan rasa lebih bertenaga melayan cucu pada waktu petang dan tidur malam pun lebih nyenyak.</p>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-[#E4EBE6]">
-          <p class="text-sm font-semibold text-[#182924]">Hajah Aminah binti Ismail</p>
-          <p class="text-xs text-[#4A5D56]">Pesara kerajaan · Ipoh</p>
-        </div>
-      </article>
-        </div>
-      </div>
-    </section>
+        <div id="app-container" class="bg-slate-800/90 backdrop-blur border border-slate-700 rounded-2xl p-6 shadow-2xl">
 
-    <!-- FAQs -->
-    <section id="soalan-lazim" class="py-16 border-t border-[#E4EBE6]">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-8">
-          <p class="text-sm font-medium text-[#0F5E4D] mb-2">04. Soalan Yang Kerap Ditanya</p>
-          <h2 class="font-display text-3xl font-semibold text-[#182924]">
-            Jawapan ringkas supaya anda rasa lebih yakin
-          </h2>
-        </div>
-        <div class="space-y-3">
-          
-      <details class="group bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm sm:text-base font-semibold text-[#182924]">
-          <span>Adakah produk ini ubat hospital atau boleh menggantikan ubat doktor?</span>
-          <span class="text-[#0F5E4D] text-lg font-normal shrink-0 group-open:rotate-45 transition-transform">+</span>
-        </summary>
-        <p class="mt-3 text-sm text-[#4A5D56] leading-relaxed">Bukan. Produk 4Life adalah makanan sokongan kesihatan harian (suplemen pemakanan) untuk membantu menyokong tenaga dan pertahanan semula jadi badan. Jika anda mempunyai ubat daripada doktor atau klinik, teruskan makan mengikut arahan doktor anda.</p>
-      </details>
-      <details class="group bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm sm:text-base font-semibold text-[#182924]">
-          <span>Bolehkah diambil bersama ubat klinik atau ubat hospital?</span>
-          <span class="text-[#0F5E4D] text-lg font-normal shrink-0 group-open:rotate-45 transition-transform">+</span>
-        </summary>
-        <p class="mt-3 text-sm text-[#4A5D56] leading-relaxed">Secara umumnya boleh sebagai sokongan pemakanan harian. Sebagai langkah cermat yang sering kami nasihatkan, jarakkan pengambilan sekitar 1 hingga 2 jam daripada waktu makan ubat klinik. Jika anda ada keadaan kesihatan khusus, anda dialu-alukan berbincang dahulu di WhatsApp atau bersama doktor anda.</p>
-      </details>
-      <details class="group bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm sm:text-base font-semibold text-[#182924]">
-          <span>Adakah selamat dan sesuai untuk kanak-kanak serta warga emas?</span>
-          <span class="text-[#0F5E4D] text-lg font-normal shrink-0 group-open:rotate-45 transition-transform">+</span>
-        </summary>
-        <p class="mt-3 text-sm text-[#4A5D56] leading-relaxed">Ya, pilihan seperti RioVida berbentuk cecair jus buah beri yang sangat lembut dan sedap untuk kanak-kanak serta warga emas yang sukar menelan kapsul. Kapsul Transfer Factor Advanced juga boleh dibuka dan dibancuh ke dalam air suam.</p>
-      </details>
-      <details class="group bg-white border border-[#DCE5DF] rounded-xl p-5">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm sm:text-base font-semibold text-[#182924]">
-          <span>Apakah perbezaan antara terus beli di MyShop dengan bertanya di WhatsApp?</span>
-          <span class="text-[#0F5E4D] text-lg font-normal shrink-0 group-open:rotate-45 transition-transform">+</span>
-        </summary>
-        <p class="mt-3 text-sm text-[#4A5D56] leading-relaxed">Jika anda sudah yakin dengan cadangan di sini, anda boleh terus buat pesanan sendiri di pautan MyShop Rasmi 4Life Malaysia (ID 9162790) dan barang dihantar terus ke rumah oleh pihak syarikat. Jika anda masih mahu bertanya tentang cara makan, kesesuaian umur atau bajet permulaan, tekan sahaja butang WhatsApp untuk berbual secara lembut dengan kami.</p>
-      </details>
-        </div>
-      </div>
-    </section>
-  </main>
+            <!-- STAGE 1: PILIH KATEGORI MASALAH -->
+            <div id="stage-1" class="space-y-6">
+                <div class="flex items-start space-x-3">
+                    <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tl-none text-sm max-w-lg shadow leading-relaxed">
+                        Assalamualaikum &amp; salam sejahtera. Saya di sini untuk bantu dengar dan fahami apa yang sedang mengganggu keselesaan awak atau keluarga hari ini. Pilih satu bahagian utama di bawah ya:
+                    </div>
+                </div>
 
-  <footer class="border-t border-[#E4EBE6] py-10 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex f
+                <div class="grid grid-cols-1 gap-3 pt-2">
+                    <button onclick="selectCategory('imun')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>🛡️ Demam, Selsema, Resdung, Asthma &amp; Imun Anak</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="selectCategory('perut')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>🦠 Gastrik, Pedih Perut, Angin, Sembelit &amp; Detoks Usus</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="selectCategory('tenaga_tidur')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>⚡ Cepat Penat Kerja, Stres, Susah Tidur &amp; Lenguh Badan</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="selectCategory('gula')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>🩸 Bacaan Gula Tinggi, Mengantuk Lepas Makan &amp; Kebas</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="selectCategory('jantung_tekanan')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>❤️ Tekanan Darah Tinggi, Kolesterol &amp; Cepat Mengah</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="selectCategory('dalaman')" class="text-left bg-slate-700/60 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 p-4 rounded-xl transition-all font-medium flex items-center justify-between group">
+                        <span>🌸 Kesihatan Dalaman Wanita (Senggugut / Haid) &amp; Lelaki</span>
+                        <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- STAGE 2: PILIH SIMPTOM -->
+            <div id="stage-2" class="hidden space-y-6">
+                <div class="flex items-start space-x-3">
+                    <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tl-none text-sm max-w-lg shadow leading-relaxed">
+                        Terima kasih kerana berkongsi. Cuba tandakan tanda-tanda yang paling kerap dirasai supaya saya boleh beri cadangan yang lebih sesuai:
+                    </div>
+                </div>
+
+                <div id="symptom-list" class="space-y-2.5"></div>
+
+                <div class="flex space-x-3 pt-4">
+                    <button onclick="resetToStage1()" class="w-1/3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-bold py-3 rounded-xl transition text-sm">
+                        ← Kembali
+                    </button>
+                    <button onclick="processAnalysis()" class="w-2/3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg">
+                        Lihat Cadangan Saya ➔
+                    </button>
+                </div>
+            </div>
+
+            <!-- STAGE 3: LOADING ANALISIS -->
+            <div id="stage-3" class="hidden py-12 text-center space-y-4">
+                <div class="inline-block w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-slate-300 font-medium animate-pulse-slow">Sebentar ya, saya sedang susun penerangan dan pilihan produk yang paling sesuai untuk awak...</p>
+            </div>
+
+            <!-- STAGE 4: HASIL ANALISIS, TESTIMONI & PRODUK -->
+            <div id="stage-4" class="hidden space-y-6">
+                <div class="bg-emerald-950/40 border border-emerald-800/60 p-4 rounded-xl">
+                    <h3 class="font-bold text-emerald-400 mb-1.5">🩺 Penjelasan Ringkas Untuk Awak:</h3>
+                    <p id="analysis-text" class="text-sm text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <!-- Bahagian Testimoni Pengguna -->
+                <div class="bg-slate-900/60 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold">⭐ Perkongsian Pengguna</span>
+                    <p id="testimonial-text" class="text-xs text-slate-300 italic leading-relaxed"></p>
+                    <p id="testimonial-author" class="text-[11px] text-slate-500"></p>
+                </div>
+
+                <div class="border-t border-slate-700 pt-4">
+                    <h4 class="font-bold text-sm text-slate-300 mb-3">Pilihan Sokongan Harian Yang Sesuai:</h4>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Pilihan 1: Set / Pilihan Utama -->
+                        <div class="bg-slate-700/50 border border-emerald-500/50 p-4 rounded-xl flex flex-col justify-between relative shadow-md">
+                            <div>
+                                <span class="text-xs bg-emerald-500 text-slate-950 px-2 py-0.5 rounded font-bold">CADANGAN UTAMA</span>
+                                <h5 id="set-name" class="font-bold text-base mt-2"></h5>
+                                <p id="set-desc" class="text-xs text-slate-400 mt-1 leading-relaxed"></p>
+                            </div>
+                            <a id="link-myshop-set" href="#" target="_blank" rel="noopener noreferrer" class="mt-4 block text-center bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition shadow">
+                                Lihat di MyShop ➔
+                            </a>
+                        </div>
+
+                        <!-- Pilihan 2: Pilihan Alternatif / Tambahan -->
+                        <div class="bg-slate-700/30 border border-slate-600 p-4 rounded-xl flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded font-semibold">PILIHAN KEDUA</span>
+                                <h5 id="single-name" class="font-bold text-base mt-2"></h5>
+                                <p id="single-desc" class="text-xs text-slate-400 mt-1 leading-relaxed"></p>
+                            </div>
+                            <a id="link-myshop-single" href="#" target="_blank" rel="noopener noreferrer" class="mt-4 block text-center bg-slate-700 hover:bg-slate-600 text-slate-100 font-bold py-2.5 rounded-lg text-sm transition border border-slate-500">
+                                Lihat di MyShop ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lencana Logo Kepercayaan / KKM & Halal -->
+                <div class="border-t border-slate-700 pt-4 flex flex-wrap items-center justify-center gap-3 text-center text-[11px] text-slate-400">
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">🛡️ Produk Rasmi 4Life</span>
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">✅ Pematuhan KKM</span>
+                    <span class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg">☪️ Disahkan Halal</span>
+                </div>
+
+                <!-- Butang Alternatif: Hubungi Kami -->
+                <div class="border-t border-slate-700 pt-3 text-center">
+                    <p class="text-xs text-slate-400 mb-2">Masih kurang pasti mana yang sesuai atau nak tanya cara pengambilan?</p>
+                    <button onclick="showContactForm()" class="text-emerald-400 hover:text-emerald-300 font-semibold text-sm underline">
+                        Tanya Terus di WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- STAGE 5: BORANG HUBUNGI KAMI (LEADS CAPTURE) -->
+            <div id="stage-5" class="hidden space-y-4">
+                <h3 class="font-bold text-lg text-emerald-400">Bantuan Terus Melalui WhatsApp</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Tinggalkan nama dan nombor telefon supaya mudah saya bantu jelaskan pilihan yang sesuai mengikut keadaan awak.</p>
+
+                <div class="space-y-3 pt-2">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nama</label>
+                        <input type="text" id="c-name" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500" placeholder="Cth: Nurul Aina">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nombor WhatsApp</label>
+                        <input type="text" id="c-phone" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500" placeholder="Cth: 0139260301">
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 pt-2">
+                    <button onclick="backToResult()" class="w-1/3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-bold py-3 rounded-xl transition text-sm">
+                        ← Kembali
+                    </button>
+                    <button onclick="submitContact()" class="w-2/3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg">
+                        Buka WhatsApp ➔
+                    </button>
+                </div>
+            </div>
+
+            <!-- STAGE 6: PAPARAN SALURAN WHATSAPP -->
+            <div id="stage-6" class="hidden space-y-4 text-center py-4">
+                <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+                <h3 class="font-bold text-xl text-emerald-400">Sedia Untuk Dihubungkan</h3>
+                <p class="text-sm text-slate-300">Tekan butang di bawah untuk terus mula berbual di WhatsApp:</p>
+
+                <div class="pt-2">
+                    <a id="wa-link" href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg text-center">
+                        🟢 Buka WhatsApp Sekarang
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-xs text-slate-500 border-t border-slate-800">
+        4Life ID: 9162790 • Sokongan Kesihatan Digital • Maklumat ini bertujuan membantu kesedaran kesihatan harian dan bukan pengganti nasihat perubatan doktor.
+    </footer>
+
+    <script>
+        let selectedCategory = '';
+
+        // =========================================================================
+        // TAMPAL PAUTAN PENUH MYSHOP ANDA (ID: 9162790) DI SINI UNTUK ELAK 404
+        // Top 10 Produk:
+        // 1. Transfer Factor Plus
+        // 2. Transfer Factor Tri-Factor (TFA)
+        // 3. Transfer Factor Chewable
+        // 4. Transfer Factor RioVida
+        // 5. Probiotics
+        // 6. Tea4Life
+        // 7. TF GluCoach
+        // 8. TF CV
+        // 9. Renuvo
+        // 10. TF Belle Vie / MalePro
+        // =========================================================================
+        const MYSHOP_LINKS = {
+            imun: {
+                set: "https://malaysia.4life.com/9162790/product/transfer-factor-plus",
+                single: "https://malaysia.4life.com/9162790/product/transfer-factor-tri-factor-formula"
+            },
+            perut: {
+                set: "https://malaysia.4life.com/9162790/product/probiotics",
+                single: "https://malaysia.4life.com/9162790/product/tea4life"
+            },
+            tenaga_tidur: {
+                set: "https://malaysia.4life.com/9162790/product/riovida",
+                single: "https://malaysia.4life.com/9162790/product/renuvo"
+            },
+            gula: {
+                set: "https://malaysia.4life.com/9162790/product/tf-glucoach",
+                single: "https://malaysia.4life.com/9162790/product/transfer-factor-plus"
+            },
+            jantung_tekanan: {
+                set: "https://malaysia.4life.com/9162790/product/tf-cv",
+                single: "https://malaysia.4life.com/9162790/product/riovida"
+            },
+            dalaman: {
+                set: "https://malaysia.4life.com/9162790/product/belle-vie",
+                single: "https://malaysia.4life.com/9162790/product/malepro"
+            }
+        };
+
+        const CATEGORY_DATA = {
+            imun: {
+                symptoms: [
+                    "Kerap bersin atau hidung berair pada waktu pagi (resdung)",
+                    "Demam, selsema atau batuk yang lambat reda",
+                    "Anak mudah berjangkit demam atau selsema di sekolah/taska",
+                    "Sesak nafas ringan atau rasa ketat dada bila cuaca sejuk / berhabuk",
+                    "Badan rasa lemah dan lambat pulih selepas sakit"
+                ],
+                analysis: "Bila cuaca tak menentu atau jadual padat, benteng pertahanan badan mudah penat dan kurang bersedia. Bila sistem pertahanan badan kurang kuat, demam, selsema, resdung atau rasa tak selesa pernafasan lebih mudah berulang. Sokongan harian yang sesuai boleh bantu kuatkan semula pertahanan badan secara perlahan dan teratur.",
+                testimonial: "\"Anak saya dulu kerap demam dan bersin pagi, lepas amalkan secara konsisten nampak lebih aktif dan jarang jatuh sakit.\"",
+                author: "— Puan Farhana, Shah Alam",
+                setName: "4Life Transfer Factor Plus",
+                setDesc: "Pilihan utama untuk sokongan pertahanan badan yang lebih menyeluruh apabila mudah jatuh sakit atau lambat pulih.",
+                singleName: "4Life Transfer Factor Tri-Factor (TFA) / Chewable",
+                singleDesc: "Sesuai untuk penjagaan harian, kepekaan resdung/cuaca sejuk, atau tablet kunyah yang mudah untuk anak-anak."
+            },
+            perut: {
+                symptoms: [
+                    "Rasa pedih atau perit di bahagian ulu hati (gastrik)",
+                    "Perut cepat berangin atau kembung selepas makan",
+                    "Sembelit atau membuang air besar tidak lawas",
+                    "Rasa berat perut dan mahu cuci bahagian usus"
+                ],
+                analysis: "Bila waktu makan tidak menentu atau perut sering tertekan, bahagian perut dan usus mudah rasa tak selesa, berangin, atau melawas pun jadi kurang lancar. Menjaga keseimbangan dalam perut bantu buatkan badan rasa lebih ringan dan selesa sepanjang hari.",
+                testimonial: "\"Dulu perut selalu berangin dan pedih bila lambat makan, sekarang rasa lebih lega dan membuang pun lebih teratur.\"",
+                author: "— Encik Hafiz, Seremban",
+                setName: "4Life Probiotics",
+                setDesc: "Membantu menjaga keseimbangan bakteria baik dalam perut supaya penghadaman rasa lebih tenang dan selesa.",
+                singleName: "Tea4Life",
+                singleDesc: "Teh herba lembut untuk bantu melancarkan pembuangan dan mengurangkan rasa berat pada perut."
+            },
+            tenaga_tidur: {
+                symptoms: [
+                    "Badan cepat penat dan tidak bermaya walaupun baru mula bekerja",
+                    "Fikiran serabut, stres kerja dan sukar lena pada waktu malam",
+                    "Sakit pinggang, lenguh lutut atau sengal-sengal badan",
+                    "Badan rasa letih berpanjangan selepas aktiviti berat"
+                ],
+                analysis: "Bila penat kerja bertumpuk dan tidur malam pun kurang nyenyak, badan tak sempat berehat sepenuhnya. Kesannya, siang hari jadi lesu dan lenguh-lenguh badan pun lebih ketara. Kita bantu tenangkan badan dan kembalikan kesegaran secara berperingkat.",
+                testimonial: "\"Lepas mula jaga rutin malam dan ambil sokongan harian, tidur lebih lena dan bangun pagi tak rasa berat kepala.\"",
+                author: "— Puan Rosmawati, Pulau Pinang",
+                setName: "4Life Transfer Factor RioVida",
+                setDesc: "Jus buah dengan antioksidan untuk bantu segarkan badan yang lesu dan menyokong tenaga harian.",
+                singleName: "4Life Renuvo",
+                singleDesc: "Membantu badan lebih tenang menghadapi stres harian, tidur lebih selesa, dan melegakan lenguh badan."
+            },
+            gula: {
+                symptoms: [
+                    "Bacaan gula dalam darah sering tinggi atau tidak menentu",
+                    "Cepat rasa mengantuk atau berat badan selepas makan nasi",
+                    "Tapak kaki atau jari terasa kebas atau menyucuk",
+                    "Cepat dahaga atau cepat letih pada waktu petang"
+                ],
+                analysis: "Bila paras gula kurang stabil, badan mudah rasa letih, mengantuk, atau kurang selesa pada bahagian hujung anggota seperti kaki. Penjagaan pemakanan yang lebih berhati-hati bersama sokongan nutrisi yang sesuai boleh bantu menstabilkan keseimbangan badan.",
+                testimonial: "\"Saya lebih berdisiplin jaga makan dan amalkan sokongan ini, rasa badan lebih stabil dan tak cepat letih.\"",
+                author: "— Encik Razak, Ipoh",
+                setName: "4Life TF GluCoach",
+                setDesc: "Dirumus khas untuk menyokong keseimbangan paras gula dalam darah dan pengurusan tenaga harian.",
+                singleName: "4Life Transfer Factor Plus",
+                singleDesc: "Memberi sokongan tambahan untuk ketahanan dan pemulihan badan secara menyeluruh."
+            },
+            jantung_tekanan: {
+                symptoms: [
+                    "Bacaan tekanan darah kerap naik atau tidak menentu",
+                    "Risau dengan paras kolesterol semasa pemeriksaan kesihatan",
+                    "Cepat mengah atau rasa berat di dada bila berjalan jauh",
+                    "Kerap pening atau rasa tegang di bahagian tengkuk"
+                ],
+                analysis: "Tekanan darah dan kolesterol yang kurang terkawal sering buat kita rasa bimbang, tegang di tengkuk, atau cepat mengah bila bergerak. Menjaga aliran darah dan rutin harian yang sihat sangat penting untuk keselesaan jantung dalam jangka panjang.",
+                testimonial: "\"Bila buat pemeriksaan rutin, saya rasa lebih yakin dan badan rasa lebih ringan bila bergerak.\"",
+                author: "— Puan Normah, Johor Bahru",
+                setName: "4Life TF CV",
+                setDesc: "Membantu menyokong kesihatan jantung dan kelancaran aliran darah secara harian.",
+                singleName: "4Life Transfer Factor RioVida",
+                singleDesc: "Sokongan antioksidan harian untuk bantu melindungi badan daripada tekanan harian."
+            },
+            dalaman: {
+                symptoms: [
+                    "Senggugut atau kitaran haid tidak teratur (Wanita)",
+                    "Rasa tidak selesa atau perubahan emosi menjelang haid / menopaus",
+                    "Kurang bertenaga atau perubahan mood yang ketara",
+                    "Perlukan sokongan kesihatan dalaman lelaki (Prostat & stamina)"
+                ],
+                analysis: "Perubahan hormon dan rutin harian yang padat boleh memberi kesan kepada emosi, keselesaan bulanan, dan tahap tenaga. Sokongan yang bersesuaian membantu mengekalkan keseimbangan badan supaya lebih selesa menjalani hari-hari biasa.",
+                testimonial: "\"Rasa lebih selesa setiap bulan dan emosi pun lebih stabil, tak mudah rasa serabut macam dulu.\"",
+                author: "— Puan Syafiqah, Kuantan",
+                setName: "4Life TF Belle Vie (Wanita)",
+                setDesc: "Dirumus untuk menyokong keseimbangan hormon dan keselesaan kesihatan dalaman wanita.",
+                singleName: "4Life MalePro (Lelaki)",
+                singleDesc: "Dirumus khas untuk menyokong kesihatan prostat dan keseimbangan dalaman lelaki."
+            }
+        };
+
+        function updateProgress(step, percent, text) {
+            document.getElementById('progress-step-text').innerText = text;
+            document.getElementById('progress-percent').innerText = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+        }
+
+        function selectCategory(category) {
+            selectedCategory = category;
+            document.getElementById('stage-1').classList.add('hidden');
+            document.getElementById('stage-2').classList.remove('hidden');
+            updateProgress(2, 66, 'Langkah 2 dari 3: Tandakan Simptom');
+
+            const symptomList = document.getElementById('symptom-list');
+            symptomList.innerHTML = '';
+
+            const symptoms = CATEGORY_DATA[category].symptoms;
+            symptoms.forEach((sym) => {
+                symptomList.innerHTML += `
+                    <label class="flex items-center space-x-3 bg-slate-700/40 border border-slate-600/70 p-3.5 rounded-xl cursor-pointer hover:bg-slate-700 transition">
+                        <input type="checkbox" name="sym" value="${sym}" class="w-4 h-4 text-emerald-500 rounded focus:ring-emerald-400 bg-slate-900 border-slate-600">
+                        <span class="text-sm text-slate-200">${sym}</span>
+                    </label>
+                `;
+            });
+        }
+
+        function resetToStage1() {
+            document.getElementById('stage-2').classList.add('hidden');
+            document.getElementById('stage-1').classList.remove('hidden');
+            updateProgress(1, 33, 'Langkah 1 dari 3: Pilih Masalah Utama');
+        }
+
+        function backToResult() {
+            document.getElementById('stage-5').classList.add('hidden');
+            document.getElementById('stage-4').classList.remove('hidden');
+        }
+
+        function processAnalysis() {
+            document.getElementById('stage-2').classList.add('hidden');
+            document.getElementById('stage-3').classList.remove('hidden');
+            updateProgress(3, 100, 'Langkah 3 dari 3: Cadangan Sedia');
+
+            setTimeout(() => {
+                document.getElementById('stage-3').classList.add('hidden');
+                document.getElementById('stage-4').classList.remove('hidden');
+                document.getElementById('progress-wrapper').classList.add('hidden');
+
+                const data = CATEGORY_DATA[selectedCategory];
+                const links = MYSHOP_LINKS[selectedCategory];
+
+                document.getElementById('analysis-text').innerText = data.analysis;
+                document.getElementById('testimonial-text').innerText = data.testimonial;
+                document.getElementById('testimonial-author').innerText = data.author;
+                document.getElementById('set-name').innerText = data.setName;
+                document.getElementById('set-desc').innerText = data.setDesc;
+                document.getElementById('single-name').innerText = data.singleName;
+                document.getElementById('single-desc').innerText = data.singleDesc;
+
+                document.getElementById('link-myshop-set').href = links.set;
+                document.getElementById('link-myshop-single').href = links.single;
+            }, 1500);
+        }
+
+        function showContactForm() {
+            document.getElementById('stage-4').classList.add('hidden');
+            document.getElementById('stage-5').classList.remove('hidden');
+        }
+
+        function submitContact() {
+            const name = document.getElementById('c-name').value.trim();
+            const phone = document.getElementById('c-phone').value.trim();
+
+            if (!name || !phone) {
+                alert('Sila isikan nama dan nombor WhatsApp dahulu ya.');
+                return;
+            }
+
+            document.getElementById('stage-5').classList.add('hidden');
+            document.getElementById('stage-6').classList.remove('hidden');
+
+            const waText = encodeURIComponent(`Assalamualaikum, nama saya ${name} (${phone}). Saya baru selesai semak saringan kesihatan dan nak minta bantuan penjelasan produk yang sesuai.`);
+            document.getElementById('wa-link').href = `https://wa.me/60139260301?text=${waText}`;
+        }
+    </script>
+</body>
+</html>
